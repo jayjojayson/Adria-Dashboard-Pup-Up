@@ -38,7 +38,7 @@ Weather Radar Card - https://github.com/Makin-Things/weather-radar-card
 ### Mushroom Chips
 
 Symbol
-```
+```yaml
 {% if is_state("binary_sensor.DeinGaragentor_magnetschalter", "off") %}
   mdi:garage-variant
 {% else %}
@@ -47,7 +47,7 @@ Symbol
 ```
 
 Icon-Farbe
-```
+```yaml
 {% if is_state("binary_sensor.DeinGaragentor_magnetschalter", "on") %}
   red
 {% else %}
@@ -56,7 +56,7 @@ Icon-Farbe
 ```
 
 Etwas schalten
-```
+```yaml
     tap_action:
       action: perform-action
       target:
@@ -67,7 +67,7 @@ Etwas schalten
 ### Mushroom Template für Personen / Auto
 
 Badge-Icon
-```
+```yaml
 {% if is_state(entity, "not_home") %}
   mdi:home-export-outline
 {% else %} 
@@ -76,7 +76,7 @@ Badge-Icon
 ```
 
 Badge-Farbe
-```
+```yaml
 {% if is_state(entity, ["home"]) -%}
 green
 {% elif is_state(entity, "not_home") %}
@@ -85,13 +85,13 @@ red
 ```
 
 Bild (ersetzt das Icon)
-```
+```yaml
 {{state_attr(entity,"entity_picture")}}
 ```
 
 Bei Auto
 Icon-Farbe
-```
+```yaml
 {% if is_state('device_tracker.DeinElektroauto_device_tracker', 'home') %}
   green
 {% else %}
@@ -102,7 +102,7 @@ Icon-Farbe
 ### Mushroom Template für Räume
 
 Icon-Farbe
-```
+```yaml
 {% if is_state('light.DeinLicht1', 'on') %}
   orange
 {% elif is_state('light.DeinLicht2', 'on') %}
@@ -111,12 +111,12 @@ Icon-Farbe
 ```
 
 Sekundäre Information
-```
+```yaml
 {{ states('sensor.DeinThermostat') }} °C
 ```
 
 ### Button Card 
-```
+```yaml
 type: custom:button-card
 name: Pflanzen & Außen
 icon: mdi:sprout-outline
@@ -130,7 +130,7 @@ tap_action:
 
 
 ### Button Card mit blinken
-```
+```yaml
 type: custom:button-card
 name: Energie
 icon: mdi:home-battery-outline
@@ -161,7 +161,7 @@ state:
 ```
 
 ### Simple Weather Card
-```
+```yaml
 type: custom:simple-weather-card
 entity: weather.DeinWetterSensor
 name: " "
@@ -180,7 +180,7 @@ tap_action:
 ```
 
 ### Bar Card
-```
+```yaml
 type: vertical-stack
 cards:
   - type: custom:bar-card
